@@ -10,11 +10,11 @@ from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
 
 import tensorflow as tf
-import model
-import hy_param
+from Chapter02 import model
+from Chapter02 import hy_param
 
 
-## tf Graph input
+# tf Graph input
 X = model.X
 Y = model.Y
 
@@ -26,7 +26,7 @@ if not os.path.exists(checkpoint_dir):
     os.makedirs(checkpoint_dir)
 saver = tf.train.Saver(tf.global_variables(), max_to_keep=2)
         
-#loss = tf.Variable(0.0)
+# loss = tf.Variable(0.0)
 # Initialize the variables
 init = tf.global_variables_initializer()
 all_loss = []

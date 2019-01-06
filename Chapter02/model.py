@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import tensorflow as tf
-import hy_param
+from Chapter02 import hy_param
 
 
 ## Defining Placeholders which will be used as inputs for the model
