@@ -1,8 +1,8 @@
-from tensorflow import keras
+import keras
 from keras.models import Sequential
 from keras.layers import Dense
 import numpy
-# import tensorflow as tf
+import tensorflow as tf
 numpy.random.seed(7)
 
 # load dataset
