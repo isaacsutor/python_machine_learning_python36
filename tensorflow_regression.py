@@ -9,3 +9,4 @@ import tensorflow as tf
 import keras
 from keras import layers
 
+dataset_path = keras.utils.get_file("auto-mpg.data", "https://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data")
