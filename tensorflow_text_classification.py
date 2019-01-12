@@ -26,3 +26,13 @@ def decode_review(text):
     return ' '.join([reverse_word_index.get(i, '?') for i in text])
 
 print(decode_review(train_data[0]))
+
+train_data = keras.preprocessing.sequence.pad_sequences(train_data,
+                                                        value=word_index["<PAD>"],
+                                                        padding='post',
+                                                        maxlen=256)
+
+test_data = keras.preprocessing.sequence.pad_sequences(test_data,
+                                                       value=word_index["<PAD>"],
+                                                       padding='post',
+                                                       maxlen=256)
