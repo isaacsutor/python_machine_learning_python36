@@ -47,3 +47,12 @@ model.add(keras.layers.Dense(16, activation=tf.nn.relu))
 model.add(keras.layers.Dense(1, activation=tf.nn.sigmoid))
 
 model.summary()
+
+model.compile(optimizer=tf.train.AdamOptimizer(),
+              loss='binary_crossentropy',
+              metrics=['accuracy'])
+
+
+
+
+
