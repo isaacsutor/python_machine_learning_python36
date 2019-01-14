@@ -36,3 +36,14 @@ test_data = keras.preprocessing.sequence.pad_sequences(test_data,
                                                        value=word_index["<PAD>"],
                                                        padding='post',
                                                        maxlen=256)
+
+# input shape is the vocabulary count used for the movie reviews (10,000 words)
+vocab_size = 10000
+
+model = keras.Sequential()
+model.add(keras.layers.Embedding(vocab_size, 16))
+model.add(keras.layers.GlobalAveragePooling1D())
+model.add(keras.layers.Dense(16, activation=tf.nn.relu))
+model.add(keras.layers.Dense(1, activation=tf.nn.sigmoid))
+
+model.summary()
