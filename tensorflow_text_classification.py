@@ -1,6 +1,7 @@
 import tensorflow as tf
 import keras
 import numpy as np
+import matplotlib.pyplot as plt
 
 imdb = keras.datasets.imdb
 
@@ -60,11 +61,48 @@ partial_y_train = train_labels[10000:]
 
 history = model.fit(partial_x_train,
                     partial_y_train,
-                    epochs=40,
+                    epochs=20,
                     batch_size=512,
                     validation_data=(x_val, y_val),
                     verbose=1)
 
+results = model.evaluate(test_data, test_labels)
+
+print(results)
+
+history_dict = history.history
+history_dict.keys()
+
+acc = history.history['acc']
+val_acc = history.history['val_acc']
+loss = history.history['loss']
+val_loss = history.history['val_loss']
+
+epochs = range(1, len(acc) + 1)
+
+# "bo" is for "blue dot"
+plt.plot(epochs, loss, 'bo', label='Training loss')
+# b is for "solid blue line"
+plt.plot(epochs, val_loss, 'b', label='Validation loss')
+plt.title('Training and validation loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+
+plt.show()
+
+plt.clf()   # clear figure
+acc_values = history_dict['acc']
+val_acc_values = history_dict['val_acc']
+
+plt.plot(epochs, acc, 'bo', label='Training acc')
+plt.plot(epochs, val_acc, 'b', label='Validation acc')
+plt.title('Training and validation accuracy')
+plt.xlabel('Epochs')
+plt.ylabel('Accuracy')
+plt.legend()
+
+plt.show()
 
 
 
